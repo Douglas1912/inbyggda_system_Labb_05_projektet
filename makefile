@@ -4,7 +4,10 @@ BIN = labb4# namn på output-binären
 SOURCES = \
 		  main.c \
 		  serial.c \
-		  timer.c
+		  timer.c \
+		  hcsr04sensor.c \
+		  servomotor.c \
+		  port.c
 
 
 PORT =/dev/ttyS4# Arduinons serieport — kan vara ttyACM1, kolla dmesg!

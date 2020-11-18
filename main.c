@@ -19,7 +19,6 @@
 #define YELLOW_LED PC2
 #define GREEN_LED PC1
 
-
 volatile unsigned short hc_sr04_counter;
 volatile unsigned char sample_meausure;
 volatile unsigned char servo_counter = 0;
@@ -43,7 +42,6 @@ int main(void)
 		printf("TCNT1:%5d\n\r",TCNT1 );
 		
 		printf("dist - %d\n", sample_meausure);
-
 		
 		if(sample_meausure <= 10){
  
@@ -70,6 +68,7 @@ int main(void)
     }
 }
 
+
 void port_init()
 {
 	DDRB |= (1<<SERVOMOTOR);
@@ -78,6 +77,7 @@ void port_init()
 	DDRD |= (1<<TRIGGER_INSIDE) | (0<<ECHO_INSIDE) ; //
 	PORTD=0x00; // Set all pins of PORTD low which turns it off.
 }
+
 
 void servormotor_open()
 {
@@ -91,6 +91,8 @@ void servormotor_open()
 		_delay_ms( 2000 );
 	}
 }
+
+
 void servormotor_close()
 {
 	OCR1A=90;  //degree
@@ -118,6 +120,7 @@ unsigned char hc_sr04_measure_outside( void )
 		return 41;
 	}
 }
+
 
 ISR( INT0_vect )
 {
